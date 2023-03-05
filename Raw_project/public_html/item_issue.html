@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Application Stock Management DashBoard</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+        <script>
+            $(function ()
+            {
+                $('#hrheader').load('resources/header.html');
+            });
+            $(function ()
+            {
+                $('#hrfooter').load('resources/footer.html');
+            });
+        </script>
+    </head>
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+
+            <div id="hrheader"></div>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Items Issue</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="data.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Item Issue</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- /.container-fluid -->
+                </section>
+
+                <!-- Main content -->
+               <section class="content">
+                    <!--<div class="container-fluid">-->
+                    <div class="container">
+                        <div class="page-header text-center">
+                            <h2><b>RAW Material Management</b></h2>
+                        </div>
+                        <form id="emp" method="post">
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-3 text-center m-auto">Issue No:</label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="recid" class="form-control" onchange="getdata1()">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-3 text-center m-auto">Issue Date:</label>
+                                <div class="col-sm-9">
+                                    <input type="date" id="recdate" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-3 text-center m-auto">Item ID:</label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="itemid" class="form-control" onchange="getnm()">
+                                </div>
+                            </div>
+                             <div class="form-group row">
+                                <label class="col-form-label col-sm-3 text-center m-auto">Item Name:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="itemnm" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-3 text-center m-auto">Item Quantity :</label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="itemqtn1" class="form-control" onchange="getqtn()" >
+                                </div>
+                            </div>
+                           
+                        </form>
+
+
+                        <div class="container1 btn btn-group" role="group" aria-label="..." style="margin-left: 400px;">
+                            <button type="button" class="btn btn-lg btn-primary" id="new" onclick="newemp()">New</button>
+                            <button type="button" class="btn btn-lg btn-primary" id="save" onclick="save()">Save</button>
+                            <button type="button" class="btn btn-lg btn-primary" id="edit" onclick="edit()">Edit</button>
+                            <button type="button" class="btn btn-lg  btn-primary" id="change" onclick="change()">Update</button>
+                            <button type="button" class="btn btn-lg  btn-primary" id="reset" onclick="reset()">Reset</button> </div>
+                        <br>
+                        <div class="container1 btn btn-group" role="group" aria-label="..." style="margin-left: 425px;" > 
+                            <button type="button" class="btn btn-lg btn-primary" id="first" onclick="getFirst()">First</button>
+                            <button type="button" class="btn btn-lg  btn-primary" id="prev" onclick="getPrev()">Previous</button>
+                            <button type="button" class="btn btn-lg btn-primary" id="next" onclick="getNext()">Next</button>
+                            <button type="button" class="btn btn-lg btn-primary" id="last" onclick="getLast()">Last</button>    
+                        </div>                
+                    </div>
+
+
+
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <!-- Control Sidebar -->
+            <div id="hrfooter"></div>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- jquery-validation -->
+        <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+        <script src="plugins/jquery-validation/additional-methods.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- Page specific script -->
+     <script src="https://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+        <script src="resources/JS/item_issue.js"></script>
+    </body>
+</html>

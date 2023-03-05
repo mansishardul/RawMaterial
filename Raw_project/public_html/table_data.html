@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+    <head> 
+
+    </head>
+
+    <body>
+        <input type="number" id="num" class="form-control" >
+        <h3 class="card-title"> <button id="btn" onclick="getDB()"> Click here to fetch Data </button></h3>
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td id="data1">$0</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td id="data2">$0</td>
+            </tr>
+        </table>
+          
+        <script>
+            function GetempID_AsJsonobj()
+            {
+                alert("in func");
+                var recId = $('#num').val();
+                 alert(recId);
+                var jsonStr = {
+                    recid: recId
+                };
+                return JSON.stringify(jsonStr);
+            }
+            function getDB()
+            {
+                 alert("working");
+                var obj = GetempID_AsJsonobj();
+                alert(obj);
+                var getrequest = createGET_BY_KEYRequest(90938077|-31949268713321395|90953047,'RAW_DB','INWARD', obj, false,false);
+                 alert("working tooo");
+                jQuery.ajaxSetup({async: false});
+                var res = executeCommandAtGivenBaseUrl(getrequest, "http://api.login2explore.com:5577", "/api/irl");
+
+                jQuery.ajaxSetup({async: true});
+                if (res.status === 400)
+                {
+
+                    $('#save').prop('disabled', false);
+
+                    $('#reset').prop('disabled', false);
+
+                } else if (res.status === 200)
+                {
+                    var data = JSON.parse(res.data).record;
+
+                    document.getElementById("data1").innerHTML = data.itemid;
+                    document.getElementById("data2").innerHTML = data.itemqtn;
+
+                }
+
+
+
+            }
+            //    var data1 = "$100";
+            //    var data2 = "$80";
+            //
+            //    document.getElementById("data1").innerHTML = data1;
+            //    document.getElementById("data2").innerHTML = data2;
+        </script>
+         <script src="https://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+
+
+    </body>
+</html>
